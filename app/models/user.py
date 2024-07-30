@@ -7,6 +7,7 @@ class User(BaseModel):
     id:Optional[str]=None
     username:str
     email:str
+    
 
 class UserCreate(BaseModel):
     username:str

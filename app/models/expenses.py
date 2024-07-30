@@ -1,11 +1,13 @@
 ### Crear modelo para los gastos ###
 from pydantic import BaseModel
 from typing import Optional
+from datetime import date
 
 class expenses(BaseModel):
-    id:Optional[str] = None
-    title:str
-    amount:float
-    id_users:str
-    id_category:str
+    id: Optional[str] = None
+    title: str
+    amount: float
+    date: Optional[str] = None
+    user: Optional[str] = None
+    category: str
  

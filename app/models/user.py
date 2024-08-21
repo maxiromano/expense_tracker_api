@@ -14,8 +14,8 @@ class UserCreate(BaseModel):
     email:str
     password:str
 
-
-
+class UserDeleteRequest(BaseModel):
+    email: str
 
 
 

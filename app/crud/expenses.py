@@ -1,7 +1,7 @@
 ### OPERACIONES CRUD PARA LOS GASTOS ###
 
 from datetime import datetime, timedelta, date
-from fastapi import Depends
+from fastapi import Depends, HTTPException
 
 #Día actual
 today = date.today()
@@ -44,8 +44,25 @@ async def get_expenses_category(category: str, user: User):
 # pasar http://127.0.0.1:8000/expenses/food
 
 
-def update_expenses():
-    pass
+def update_expenses(id,expense: expenses, user: User):
+    dict_spent = expense.dict()
+    dict_spent.pop("id",None)
+
+    dict_spent["user"] = user["username"]
+    dict_spent["date"] = datetime.utcnow().date().isoformat()
+
+    result = db_expenses.find_one_and_replace({"_id": id}, dict_spent, return_document=True)
+    
+    if result is None:
+        raise HTTPException(status_code=404, detail="Expense not found")
+    
+    return expense_schema(result)
+# {
+#  "title":"2 taxis",
+#  "amount":160,
+#  "category":"transport"
+#}
+# http://127.0.0.1:8000/expenses/66c6625b37bd168d76e4544c
 
 
 def delete_expenses():

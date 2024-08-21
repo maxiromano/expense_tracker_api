@@ -86,11 +86,10 @@ async def delete_user(user_delete_request: UserDeleteRequest, current_user: dict
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     
     return {"detail": "Usuario eliminado correctamente"}
-
-
 #{
 #  "email":"milanesa3@gmial.com"
 #}
+
 
 def get_all_users():
     users = db_users.find()

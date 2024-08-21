@@ -21,8 +21,8 @@ def create_user(user: UserCreate):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
 # {
-#  "username":"franco",
-#  "email":"romanomaxi42@gmial.com",
+#  "username":"camion",
+#  "email":"camion3@gmial.com",
 #  "password":1234
 # }
 
@@ -39,8 +39,8 @@ def update_user(user: User):
         raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
 
 # {
-#  "username":"franco",
-#  "email":"romanomaxi42@gmial.com"
+#  "username":"carlos",
+#  "email":"carlos2@gmial.com"
 # }
 
 
@@ -51,8 +51,8 @@ def delete_user(user: User):
     return {"detail": "Usuario eliminado correctamente"}
 
 #{
-#  "username":"franco",
-#  "email":"romanomaxi42@gmial.com"
+#  "username":"milanesa",
+#  "email":"milanesa3@gmial.com"
 #}
 
 def get_all_users():
